@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 产品经理 · 互动课堂</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+</head>
+<body>
+
+<div id="boot-screen">
+  <div class="boot-card">
+    <div class="boot-logo">🧭</div>
+    <h1>AI 产品经理 · 互动课堂</h1>
+    <p id="boot-status">正在加载 Python 运行环境（Pyodide）...</p>
+    <div class="boot-progress"><div id="boot-progress-bar"></div></div>
+    <p class="boot-hint">首次加载需要联网下载，大约10~30秒，请耐心等待。之后会使用浏览器缓存，加载更快。课程里的讲解和写作练习不依赖这个环境，可以先看。</p>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+
+  <header id="top-bar">
+    <div class="top-bar-left">
+      <button id="sidebar-toggle" title="展开/收起课程目录">☰</button>
+      <span class="brand">🧭 AI 产品经理课堂</span>
+    </div>
+    <div class="top-bar-right">
+      <div class="xp-badge" title="经验值">⭐ <span id="xp-count">0</span> XP</div>
+      <div class="progress-wrap" title="总体完成度">
+        <div class="progress-track"><div id="global-progress-bar"></div></div>
+        <span id="global-progress-text">0%</span>
+      </div>
+      <button id="reset-progress-btn" title="重置全部学习进度">重置进度</button>
+    </div>
+  </header>
+
+  <div id="main-layout">
+    <nav id="sidebar">
+      <div id="course-tree"></div>
+    </nav>
+
+    <main id="content-panel">
+      <div id="lesson-header">
+        <h2 id="lesson-title">欢迎</h2>
+        <div id="lesson-tabs" class="hidden">
+          <button class="tab-btn active" data-tab="learn">📖 讲解</button>
+          <button class="tab-btn" data-tab="practice">⌨️ 练习</button>
+          <button class="tab-btn" data-tab="quiz">📝 小测</button>
+        </div>
+      </div>
+
+      <section id="tab-learn" class="tab-content"></section>
+
+      <section id="tab-practice" class="tab-content hidden">
+        <div id="practice-container"></div>
+      </section>
+
+      <section id="tab-quiz" class="tab-content hidden">
+        <div id="quiz-container"></div>
+      </section>
+
+      <div id="lesson-nav">
+        <button id="prev-lesson-btn" class="nav-btn">← 上一课</button>
+        <button id="mark-done-btn" class="nav-btn primary">✓ 完成本课</button>
+        <button id="next-lesson-btn" class="nav-btn">下一课 →</button>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+
+<script src="js/datasets.js"></script>
+<script src="js/pyodide-runner.js"></script>
+<script>var COURSE_MODULES = [];</script>
+<script src="js/content/m0_intro.js"></script>
+<script src="js/content/m1_llm_agent.js"></script>
+<script src="js/content/m2_model_economics.js"></script>
+<script src="js/content/m3_prompt.js"></script>
+<script src="js/content/m4_evaluation.js"></script>
+<script src="js/content/m5_prd.js"></script>
+<script src="js/content/m6_roadmap_metrics.js"></script>
+<script src="js/content/m7_business_risk.js"></script>
+<script src="js/content/m8_portfolio_interview.js"></script>
+<script src="js/content/m9_mock_interview.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
